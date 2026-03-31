@@ -3,6 +3,9 @@ import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Building2, MapPin, Clock, DollarSign, Accessibility } from 'lucide-react';
 import { LibrasButton } from './LibrasButton';
+import { useState } from 'react';
+
+
 
 const jobs = [
   {
@@ -73,7 +76,19 @@ const jobs = [
   },
 ];
 
+
+
+
 export function JobListings() {
+
+  const [filtroAtivo, setFiltroAtivo] = useState("Todas")
+
+  const filteredJobs = jobs.filter((job) => {
+    if (filtroAtivo === "Todas") return true
+    if (filtroAtivo === "Remoto") return job.location === "Remoto"
+    if (filtroAtivo === "Presencial") return job.location !== "Remoto"
+    return job.type == filtroAtivo
+  })
   return (
     <section id="vagas" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,15 +104,20 @@ export function JobListings() {
 
         {/* Filter section */}
         <div className="mb-8 flex flex-wrap gap-4 justify-center ">
-          <Button variant="outline" size="sm" className='cursor-pointer'>Todas</Button>
-          <Button variant="outline" size="sm" className='cursor-pointer'>CLT</Button>
-          <Button variant="outline" size="sm" className='cursor-pointer'>PJ</Button>
-          <Button variant="outline" size="sm" className='cursor-pointer'>Remoto</Button>
-          <Button variant="outline" size="sm" className='cursor-pointer'>Presencial</Button>
+          <Button variant="outline" size="sm" className={filtroAtivo === "Todas" ? "bg-emerald-600 text-white cursor-pointer" : "cursor-pointer"} 
+          onClick={() => setFiltroAtivo("Todas")}>Todas</Button>
+          <Button variant="outline" size="sm" className={filtroAtivo === "CLT" ? "bg-emerald-600 text-white cursor-pointer" : "cursor-pointer"}
+          onClick={() => setFiltroAtivo("CLT")}>CLT</Button>
+          <Button variant="outline" size="sm" className={filtroAtivo === "PJ" ? "bg-emerald-600 text-white cursor-pointer" : "cursor-pointer"}
+          onClick={() => setFiltroAtivo("PJ")}>PJ</Button>
+          <Button variant="outline" size="sm" className={filtroAtivo === "Remoto" ? "bg-emerald-600 text-white cursor-pointer" : "cursor-pointer"}
+          onClick={() => setFiltroAtivo("Remoto")}>Remoto</Button>
+          <Button variant="outline" size="sm" className={filtroAtivo === "Presencial" ? "bg-emerald-600 text-white cursor-pointer" : "cursor-pointer"}
+          onClick={() => setFiltroAtivo("Presencial")}>Presencial</Button>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {jobs.map((job) => (
+          {filteredJobs.map((job) => (
             <Card key={job.id} className="p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-emerald-100 text-emerald-600 p-3 rounded-lg">
