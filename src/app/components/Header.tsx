@@ -24,9 +24,6 @@ export function Header() {
             <a href="#inicio" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
               Início
             </a>
-            <a href="#vagas" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
-              Vagas
-            </a>
             <a href="#curriculo" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
               Currículo
             </a>
@@ -35,6 +32,9 @@ export function Header() {
             </a>
             <a href="#direitos" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
               Direitos
+            </a>
+            <a href="#contato" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
+              Contato
             </a>
             <LibrasButton section="header" variant="default" size="sm" className="bg-emerald-600 hover:bg-emerald-700" />
           </nav>
@@ -56,9 +56,6 @@ export function Header() {
               <a href="#inicio" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
                 Início
               </a>
-              <a href="#vagas" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
-                Vagas
-              </a>
               <a href="#curriculo" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
                 Currículo
               </a>
@@ -67,6 +64,9 @@ export function Header() {
               </a>
               <a href="#direitos" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
                 Direitos
+              </a>
+              <a href="#contato" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
+                Contato
               </a>
               <LibrasButton section="header-mobile" variant="default" size="sm" className="bg-emerald-600 hover:bg-emerald-700 w-full" />
             </div>

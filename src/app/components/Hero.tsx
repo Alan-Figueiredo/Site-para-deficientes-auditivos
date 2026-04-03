@@ -1,13 +1,23 @@
+import { useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Button } from './ui/button';
 import { Search, FileText, TrendingUp } from 'lucide-react';
 import { LibrasButton } from './LibrasButton';
+import {JobSearchModal} from './JobSearchModal'
+import type { SearchFilters } from './JobSearchModal';
 
+interface HeroProps {
+  onSearch?: (filters: SearchFilters) => void;
+}
 
-export function Hero() {
+export function Hero({ onSearch }: HeroProps) {
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
 
-
-
+  const handleSearch = (filters: SearchFilters) => {
+    onSearch?.(filters);
+    // Scroll to jobs section
+    document.getElementById('vagas')?.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <section id="inicio" className="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,14 +52,20 @@ export function Hero() {
             </p>
             
             <div className="flex flex-wrap gap-4 mb-8">
-              <a href="#vagas">
-                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 cursor-pointer">
-                <Search className="w-5 h-5 mr-2" />
+              <Button
+                size="lg"
+                className="bg-emerald-600 hover:bg-emerald-700"
+                onClick={() => setSearchModalOpen(true)}
+              >
+                <Search className="w-5 h-5 mr-2 " />
                 Buscar Vagas
               </Button>
-              </a>
-              
-              <Button size="lg" variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 cursor-pointer">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
+                onClick={() => document.getElementById('curriculo')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 <FileText className="w-5 h-5 mr-2" />
                 Criar Currículo
               </Button>
@@ -86,6 +102,12 @@ export function Hero() {
           </div>
         </div>
       </div>
+
+      <JobSearchModal
+        open={searchModalOpen}
+        onOpenChange={setSearchModalOpen}
+        onSearch={handleSearch}
+      />
     </section>
   );
 }
