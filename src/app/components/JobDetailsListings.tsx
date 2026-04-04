@@ -318,6 +318,12 @@ export function JobListings({ searchFilters, onClearFilters }: JobListingsProps)
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [detailsModalOpen, setDetailsModalOpen] = useState(false);
 
+  const [visibleCount,setVisibleCount] = useState<number>(3);
+
+  const handleLoadMore = () => {
+    setVisibleCount(prevCount => prevCount + 3);
+  }
+
   const handleViewDetails = (job: Job) => {
     setSelectedJob(job);
     setDetailsModalOpen(true);
@@ -373,6 +379,7 @@ export function JobListings({ searchFilters, onClearFilters }: JobListingsProps)
     }
 
     setFilteredJobs(filtered);
+    setVisibleCount(3);
   }, [searchFilters]);
 
   const handleQuickFilter = (filter: string) => {
@@ -398,6 +405,7 @@ export function JobListings({ searchFilters, onClearFilters }: JobListingsProps)
     }
 
     setFilteredJobs(filtered);
+    setVisibleCount(3);
   };
 
   const hasSearchFilters = searchFilters && (
@@ -473,7 +481,7 @@ export function JobListings({ searchFilters, onClearFilters }: JobListingsProps)
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredJobs.length > 0 ? (
-            filteredJobs.map((job) => (
+            filteredJobs.slice(0,visibleCount).map((job) => (
               <Card key={job.id} className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start justify-between mb-4">
                   <div className="bg-emerald-100 text-emerald-600 p-3 rounded-lg">
@@ -553,11 +561,13 @@ export function JobListings({ searchFilters, onClearFilters }: JobListingsProps)
           )}
         </div>
 
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg" disabled={filteredJobs.length === 0}>
+        {filteredJobs.length > visibleCount && (
+          <div className="text-center mt-12">
+          <Button variant="outline" size="lg" onClick={handleLoadMore}>
             Carregar Mais Vagas
           </Button>
         </div>
+        )}
       </div>
 
       <JobDetailsModal
