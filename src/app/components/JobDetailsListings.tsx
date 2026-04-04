@@ -12,6 +12,7 @@ interface JobListingsProps {
   onClearFilters?: () => void;
 }
 
+
 interface Job {
   id: number;
   title: string;
@@ -331,6 +332,7 @@ export function JobListings({ searchFilters, onClearFilters }: JobListingsProps)
 
     let filtered = jobs;
 
+    // escrito
     if (searchFilters.keywords) {
       const keywords = searchFilters.keywords.toLowerCase();
       filtered = filtered.filter(job =>
@@ -341,6 +343,7 @@ export function JobListings({ searchFilters, onClearFilters }: JobListingsProps)
       );
     }
 
+    // localização 
     if (searchFilters.location) {
       const location = searchFilters.location.toLowerCase();
       filtered = filtered.filter(job =>
@@ -348,16 +351,25 @@ export function JobListings({ searchFilters, onClearFilters }: JobListingsProps)
       );
     }
 
+    // tipo
     if (searchFilters.type) {
       filtered = filtered.filter(job => job.type === searchFilters.type);
     }
 
+    // descrição
     if (searchFilters.tags.length > 0) {
-      filtered = filtered.filter(job =>
-        searchFilters.tags.some(searchTag =>
-          job.tags.some(jobTag => jobTag.toLowerCase().includes(searchTag.toLowerCase()))
-        )
-      );
+      filtered = filtered.filter(job => searchFilters.tags.some(searchTag => {
+        const searchTagLower = searchTag.toLowerCase();
+
+        if (searchTagLower === "remoto") {
+          return (
+            job.tags.some(jobTag =>
+              jobTag.toLowerCase().includes("remoto") || 
+              jobTag.toLowerCase().includes("home office")) ||
+              job.location.toLowerCase().includes("remoto"))
+        }
+        return job.tags.some(jobTag => jobTag.toLowerCase().includes(searchTagLower))
+      }))
     }
 
     setFilteredJobs(filtered);
@@ -377,11 +389,8 @@ export function JobListings({ searchFilters, onClearFilters }: JobListingsProps)
       filtered = jobs.filter(job => job.type === filter);
     } else if (filter === 'Remoto') {
       filtered = jobs.filter(job =>
-        job.tags.some(tag =>
-          tag.toLowerCase().includes('remoto') ||
-          tag.toLowerCase().includes('home office')
-        ) || job.location.toLowerCase().includes('remoto')
-      );
+        job.tags.some(tag =>tag.toLowerCase().includes("home office")) || 
+        job.location.toLowerCase().includes("remoto"))
     } else if (filter === 'Presencial') {
       filtered = jobs.filter(job =>
         job.tags.some(tag => tag.toLowerCase().includes('presencial'))
