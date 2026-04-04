@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { JobListings } from './components/JobListings';
+//import { JobListings } from './components/JobListings';
+import { JobListings } from './components/JobDetailsListings';
 import { ResumeGuide } from './components/ResumeGuide';
 import { InterviewTips } from './components/InterviewTips';
 import { WorkRights } from './components/WorkRights';
