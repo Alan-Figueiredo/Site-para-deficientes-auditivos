@@ -14,5 +14,3 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   res.status(200).json(models);
 }
-
-//https://6dvdqzsavtw2hne5.private.blob.vercel-storage.com/
