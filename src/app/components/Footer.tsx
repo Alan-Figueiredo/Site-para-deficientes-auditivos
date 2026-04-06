@@ -16,7 +16,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-gray-400 text-sm">
-              Conectando talentos surdos com empresas inclusivas desde 2020.
+              Conectando talentos surdos com empresas inclusivas desde 2026.
             </p>
           </div>
 
@@ -38,7 +38,6 @@ export function Footer() {
               <li><a href="#" className="hover:text-white transition-colors">Anunciar Vagas</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Lei de Cotas</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Consultoria Inclusão</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Cursos em Libras</a></li>
             </ul>
           </div>
 

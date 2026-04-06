@@ -29,7 +29,6 @@ export default function App() {
         <ResumeGuide />
         <InterviewTips />
         <WorkRights />
-      
         <CompanyShowcase />
       </main>
       <Footer />
