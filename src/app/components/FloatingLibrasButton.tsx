@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Video, Languages, Settings } from 'lucide-react';
+import { Video } from 'lucide-react';
 import { Button } from './ui/button';
-import { LibrasPlayer } from './LibrasPlayer';
+
 
 export function FloatingLibrasButton() {
   const [isPlayerOpen, setIsPlayerOpen] = useState(false);
@@ -39,21 +39,8 @@ export function FloatingLibrasButton() {
               <div className="absolute -top-1 -right-1 bg-red-500 w-3 h-3 rounded-full animate-pulse"></div>
             </div>
           </Button>
-
-          {/* Label */}
-          <div className="mt-2 text-center">
-            <span className="text-xs font-semibold text-gray-700 bg-white px-2 py-1 rounded shadow">
-              LIBRAS
-            </span>
-          </div>
         </div>
       </div>
-
-      {/* Player */}
-      <LibrasPlayer
-        isOpen={isPlayerOpen}
-        onClose={() => setIsPlayerOpen(false)}
-      />
     </>
   );
 }

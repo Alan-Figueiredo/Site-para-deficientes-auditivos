@@ -1,7 +1,6 @@
 import { Card } from './ui/card';
 import { MessageSquare, Users, Lightbulb, CheckCircle2, Video, BookOpen } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { LibrasButton } from './LibrasButton';
 
 const tips = [
   {
@@ -76,7 +75,6 @@ export function InterviewTips() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
             Prepare-se para conquistar sua vaga com confiança
           </p>
-          <LibrasButton section="interview" variant="outline" size="lg" />
         </div>
 
         {/* Main Tips */}

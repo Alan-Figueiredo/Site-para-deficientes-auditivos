@@ -13,7 +13,7 @@ import {
   ChevronUp,
 } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { LibrasButton } from './LibrasButton';
+
 
 const steps = [
   {
@@ -134,7 +134,6 @@ export function ResumeGuide() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
             Passo a passo para criar um currículo profissional e acessível
           </p>
-          <LibrasButton section="resume" variant="outline" size="lg" />
         </div>
 
         {/* Steps */}

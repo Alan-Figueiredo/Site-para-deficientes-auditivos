@@ -1,7 +1,6 @@
 import { Briefcase, Menu, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { useState } from 'react';
-import { LibrasButton } from './LibrasButton';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,7 +35,6 @@ export function Header() {
             <a href="#contato" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
               Contato
             </a>
-            <LibrasButton section="header" variant="default" size="sm" className="bg-emerald-600 hover:bg-emerald-700" />
           </nav>
 
           <Button 
@@ -68,7 +66,6 @@ export function Header() {
               <a href="#contato" className="text-gray-700 hover:text-emerald-600 transition-colors font-medium">
                 Contato
               </a>
-              <LibrasButton section="header-mobile" variant="default" size="sm" className="bg-emerald-600 hover:bg-emerald-700 w-full" />
             </div>
           </nav>
         )}

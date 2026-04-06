@@ -1,6 +1,5 @@
 import { Card } from './ui/card';
 import { Shield, Scale, Users, Briefcase, AlertCircle, BookOpen } from 'lucide-react';
-import { LibrasButton } from './LibrasButton';
 
 const rights = [
   {
@@ -86,7 +85,6 @@ export function WorkRights() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
             Conheça seus direitos como pessoa surda no mercado de trabalho
           </p>
-          <LibrasButton section="rights" variant="outline" size="lg" />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">

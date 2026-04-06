@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-//import { JobListings } from './components/JobListings';
 import { JobListings } from './components/JobDetailsListings';
 import { ResumeGuide } from './components/ResumeGuide';
 import { InterviewTips } from './components/InterviewTips';
 import { WorkRights } from './components/WorkRights';
 import { CompanyShowcase } from './components/CompanyShowcase';
-import { LibrasVideoLibrary } from './components/LibrasVideoLibrary';
-import { FloatingLibrasButton } from './components/FloatingLibrasButton';
 import { Footer } from './components/Footer';
 import type { SearchFilters } from './components/JobSearchModal';
 
@@ -32,11 +29,10 @@ export default function App() {
         <ResumeGuide />
         <InterviewTips />
         <WorkRights />
-        <LibrasVideoLibrary />
+      
         <CompanyShowcase />
       </main>
       <Footer />
-      <FloatingLibrasButton />
     </div>
   );
 }
