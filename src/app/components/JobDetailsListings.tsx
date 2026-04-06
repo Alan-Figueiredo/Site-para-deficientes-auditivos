@@ -3,7 +3,6 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Building2, MapPin, Clock, DollarSign, Accessibility, Filter, X } from 'lucide-react';
-import { LibrasButton } from './LibrasButton';
 import type { SearchFilters } from './JobSearchModal';
 import { JobDetailsModal } from './JobDetailsModal';
 
@@ -544,7 +543,6 @@ export function JobListings({ searchFilters, onClearFilters }: JobListingsProps)
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
             Empresas comprometidas com a inclusão de pessoas surdas
           </p>
-          <LibrasButton section="jobs" variant="outline" size="lg" />
         </div>
 
         {hasSearchFilters && (
