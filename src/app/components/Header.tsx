@@ -11,10 +11,13 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
             <div className="bg-emerald-600 p-2 rounded-lg">
-              <Briefcase className="w-6 h-6 text-white" />
+              <Briefcase className="w-6 h-6 text-white cursor-pointer "
+              onClick={() => document.getElementById('inicio')?.scrollIntoView({ behavior: 'instant' })} />
             </div>
             <div>
-              <h1 className="text-xl font-semibold text-gray-900">Trabalho Acessível</h1>
+              <h1 className="text-xl font-semibold text-gray-900 cursor-pointer"
+              onClick={() => document.getElementById('inicio')?.scrollIntoView({ behavior: 'instant' })}>
+                Conecta Inclusão</h1>
               <p className="text-xs text-gray-600">Oportunidades para Surdos</p>
             </div>
           </div>
